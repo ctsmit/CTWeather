@@ -1,0 +1,25 @@
+.location {
+  display: flex;
+  gap: 2rem;
+}
+
+.location>:last-child {
+  padding-top: .5rem;
+}
+
+.current {
+  margin: 1rem 0rem;
+  font-size: 150%;
+
+}
+.sunsets-container{
+  display: grid;
+  gap: .5rem;
+  font-weight:600;
+}
+.sunsets{
+  background: rgba(36, 28, 54, 0.712);
+  border-radius: 5px;
+  padding: .5rem 1rem ;
+
+}

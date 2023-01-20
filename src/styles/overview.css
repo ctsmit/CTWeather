@@ -1,0 +1,17 @@
+.overview-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+.overviews{
+  background: rgba(240, 255, 255, 0.219);
+  border-radius: 5px;
+  padding: .5rem 1rem ;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+

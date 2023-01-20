@@ -1,32 +1,26 @@
-//all of our endpints
-import axios from 'axios'
-const BaseURL = 'http://localhost:3001/locations'
-//show all
-export const getLocations = () => {
-const response = axios.get(BaseURL)
-return response
+import axios from "axios"
+const APIKey = process.env.REACT_APP_OW_API_KEY
+
+export const getCoordinates = async (searchTerm) => {
+  try {
+    const response = await fetch(
+      `http://api.openweathermap.org/geo/1.0/direct?q=sparta,nc,USA&limit=5&appid=bbc418a4d68c4e0909edc8c1c86103d7`
+    )
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error(error)
+  }
 }
-//show one
-export const getLocation = (id) => {
-const URL = `BaseURL/id`
-const response = axios.get(URL)
-return response
-}
-//edit todo
-export const editLocation = (id, updatedLocation) => {
-const URL = `BaseURL/id`
-const response = axios.put(URL, updatedLocation)
-return response
-}
-//create todo
-export const createLocation = (Location) => {
-const URL = BaseURL
-const response = axios.post(URL, Location)
-return response
-}
-//delete todo
-export const deleteLocation = id => {
-const URL = `BaseURL/id`
-const response = axios.delete(URL)
- return response
+
+export const getWeatherAPI = async (lat, lon) => {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`
+    )
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error(error)
+  }
 }

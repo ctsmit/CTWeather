@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+}
+
+body{
+  background: #666666;
+  padding: 3rem;
+}
+#root{
+  max-width: 70rem;
+  margin: auto;
+}
+.App {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  background: none;
+}
+.App>:first-child{
+  background:  #ffffff44;
+  color: rgb(54, 36, 94);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 1.5rem;
+}
+.App>:first-child h4{
+  color: rgb(102, 102, 102);
+  font-weight: 600;
+  text-align: center;
+}
+.App>:last-child{
+  background: linear-gradient(135deg,rgba(29, 19, 49, 0.397)0%,rgb(29, 19, 49)45% 55%,rgba(29, 19, 49, 0.397));
+  color: aliceblue;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  padding: 1.5rem;
+}
+
+
+
+
+
+/* .App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+
+
