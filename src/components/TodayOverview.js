@@ -1,12 +1,15 @@
 import { } from "@fortawesome/free-regular-svg-icons"
-import { faCloudRain, faSmog, faSun, faWind } from "@fortawesome/free-solid-svg-icons"
+import { faCloud, faCloudRain, faSmog, faSun, faWind } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import "../styles/overview.css"
-
+import "../styles/todayOverview.css"
+import { help } from "../utils"
 export const TodayOverview = ({ data }) => {
-  console.log(data.current)
-  // let wind = data.current.wind_speed
-  // console.log(wind);
+  let windGusts = Math.round(data.daily[0].wind_gust)
+  let windSpeed = Math.round(data.daily[0].wind_speed)
+  let precChance = Math.round(data.daily[0].pop * 100)
+  let cloudPerc = data.daily[0].clouds
+  let uvi = data.daily[0].uvi
+
   return (
     <div className="overview">
       <h2>Today Overview</h2>
@@ -15,16 +18,16 @@ export const TodayOverview = ({ data }) => {
           <h4>Wind Speed</h4>
           <div className="flex">
             <FontAwesomeIcon className="fa-xl" icon={faWind} />
-            <h1>12MPH</h1>
-            <h4>22</h4>
+            <h1>{windSpeed} m/h</h1>
+            <h4>^{windGusts}</h4>
           </div>
         </div>
         <div className="overviews">
           <h4>Precip Chance</h4>
           <div className="flex">
             <FontAwesomeIcon className="fa-xl" icon={faCloudRain} />
-            <h1>24%</h1>
-            <h4>22</h4>
+            <h1>{precChance}</h1>
+            <h4>{cloudPerc}%<FontAwesomeIcon icon={faCloud}/></h4>
           </div>
         </div>
         <div className="overviews">
@@ -36,11 +39,11 @@ export const TodayOverview = ({ data }) => {
           </div>
         </div>
         <div className="overviews">
-          <h4>UV Index</h4>
+          <h4>UVI</h4>
           <div className="flex">
           <FontAwesomeIcon className="fa-xl" icon={faSun} />
-            <h1>2.3</h1>
-            <h4>.3</h4>
+            <h1>{uvi}</h1>
+            <h4>{help.isUVHigh(uvi)}</h4>
           </div>
         </div>
       </div>

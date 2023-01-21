@@ -12,19 +12,19 @@ export const getLocation = (id) => {
   const response = axios.get(URL)
   return response
 }
-//edit todo
+//edit 
 export const editLocation = (id, updatedLocation) => {
   const URL = `${BaseURL}/${id}`
   const response = axios.put(URL, updatedLocation)
   return response
 }
-//create todo
-export const createLocation = (Location) => {
+//create 
+export const createLocation = (location) => {
   const URL = BaseURL
-  const response = axios.post(URL, Location)
+  const response = axios.post(URL, location)
   return response
 }
-//delete todo
+//delete 
 export const deleteLocation = (id) => {
   const URL = `${BaseURL}/${id}`
   const response = axios.delete(URL)
