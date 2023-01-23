@@ -1,21 +1,25 @@
-.overview-container{
+.overview-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
 }
-.overviews{
-  background: rgba(210, 213, 255, 0.425);
+
+.overviews {
+  background: rgba(73, 76, 255, 0.06);
   border-radius: 5px;
-  padding: .5rem 1rem ;
+  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.589);
+
+  padding: .5rem 1rem;
 }
-.flex{
-  /* text-align: center; */
+
+.overviews h4 {
+  text-align: center;
+  color: rgb(63, 63, 63);
+  font-weight: 600;
+}
+
+.flex {
   display: flex;
   justify-content: space-around;
 }
-/* .flex > * {
-  display: inline;
-} */
-
-

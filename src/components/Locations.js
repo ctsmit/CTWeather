@@ -8,19 +8,20 @@ import { Create } from "./Create"
 export const Locations = () => {
   // const nav = useNavigate()
   const [locations, setLocations] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      let res = await getLocations()
-      setLocations(res.data)
-    }
-    fetchData()
-  }, [locations])
-
+  
+  const fetchData = async () => {
+    let res = await getLocations()
+    setLocations(res.data)
+  }
+  
   const deleteLoc = async (id) => {
     await deleteLocation(id)
+    fetchData()
   }
-
+  
+  useEffect(() => {
+    fetchData()
+  }, [])
   return (
     <div>
       <ul>
@@ -31,12 +32,14 @@ export const Locations = () => {
               <Link to={`/${location._id}`} state={location}>
                 {loc.city} {loc.state}
               </Link>
-              <button onClick={()=> deleteLoc(location._id)} className="xbtn"><FontAwesomeIcon icon={faXmark}/></button>
+              <button onClick={() => deleteLoc(location._id)} className="xbtn">
+                <FontAwesomeIcon icon={faXmark} />
+              </button>
             </li>
           )
         })}
       </ul>
-        <Create/>
+      <Create fetchData={fetchData} />
     </div>
   )
 }

@@ -1,25 +1,41 @@
 .location {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
 }
 
 .location>:last-child {
-  padding-top: .5rem;
+  padding-top: 1rem;
 }
 
 .current {
   margin: 1rem 0rem;
-  font-size: 150%;
+  padding: 0 .5rem;
+  font-size: 180%;
 
+}
+.description{
+  margin-top: -.7rem;
 }
 .sunsets-container{
   display: grid;
   gap: .5rem;
+  padding: 0 1rem;
   font-weight:600;
 }
 .sunsets{
-  background: rgba(57, 51, 71, 0.712);
+  background: rgba(57, 51, 71, 0.507);
   border-radius: 5px;
   padding: .5rem 1rem ;
+  box-shadow: 0 .4rem 1rem rgba(0, 0, 0, 0.589);
 
+}
+.small {
+  font-size: 60%;
+}
+.xsmall{
+  font-size: 33%;
+}
+.flex1{
+  display: flex;
+  justify-content: space-between;
 }

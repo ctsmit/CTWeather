@@ -1,9 +1,16 @@
 import { } from "@fortawesome/free-regular-svg-icons"
 import { faCloud, faCloudRain, faSmog, faSun, faWind } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useEffect } from "react"
+import { getAirPollAPI } from "../services/weather-api"
 import "../styles/todayOverview.css"
 import { help } from "../utils"
-export const TodayOverview = ({ data }) => {
+
+
+export const TodayOverview = (props) => {
+  let data = props.weatherData
+  let api = props.airData 
+
   let windGusts = Math.round(data.daily[0].wind_gust)
   let windSpeed = Math.round(data.daily[0].wind_speed)
   let precChance = Math.round(data.daily[0].pop * 100)
@@ -27,15 +34,15 @@ export const TodayOverview = ({ data }) => {
           <div className="flex">
             <FontAwesomeIcon className="fa-xl" icon={faCloudRain} />
             <h1>{precChance}</h1>
-            <h4>{cloudPerc}%<FontAwesomeIcon icon={faCloud}/></h4>
+            <h4>{cloudPerc}<FontAwesomeIcon icon={faCloud}/></h4>
           </div>
         </div>
         <div className="overviews">
           <h4>Air Quality</h4>
           <div className="flex">
           <FontAwesomeIcon className="fa-xl" icon={faSmog} />
-            <h1>26</h1>
-            <h4>Good</h4>
+            <h1>{api}</h1>
+            <h4>{help.isAirBad(api)}</h4>
           </div>
         </div>
         <div className="overviews">
