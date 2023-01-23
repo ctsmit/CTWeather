@@ -8,6 +8,8 @@ import { help } from "../utils"
 
 
 export const TodayOverview = (props) => {
+
+  console.log(props);
   let data = props.weatherData
   let api = props.airData 
 
