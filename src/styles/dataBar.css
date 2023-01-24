@@ -11,31 +11,61 @@
   margin: 1rem 0rem;
   padding: 0 .5rem;
   font-size: 180%;
-
 }
-.description{
+
+.degree {
+  font-size: 35%;
+  padding-bottom: 1.45rem;
+}
+
+.degree1 {
+  font-size: 35%;
+  padding-bottom: .5rem;
+}
+
+.description {
   margin-top: -.7rem;
 }
-.sunsets-container{
+
+.rain-chance {
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.hour-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.hour-container h4 {
+  padding-top: .2rem;
+}
+
+.sunsets-container {
   display: grid;
   gap: .5rem;
   padding: 0 1rem;
-  font-weight:600;
+  font-weight: 600;
 }
-.sunsets{
-  background: rgba(57, 51, 71, 0.507);
+
+.sunsets,
+.six-hour-container {
+  background: rgba(57, 51, 71, 0.35);
   border-radius: 5px;
-  padding: .5rem 1rem ;
+  padding: .5rem 1rem;
   box-shadow: 0 .4rem 1rem rgba(0, 0, 0, 0.589);
 
 }
+
 .small {
   font-size: 60%;
 }
-.xsmall{
+
+.xsmall {
   font-size: 33%;
 }
-.flex1{
+
+.flex1 {
   display: flex;
   justify-content: space-between;
 }

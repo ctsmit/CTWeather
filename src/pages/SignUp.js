@@ -1,8 +1,8 @@
 // import "./signUpPage.css"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import React, { useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { auth } from "../../services/firebase"
+import { auth } from "../services/fire"
 
 export const SignUp = () => {
   const nav = useNavigate()
@@ -87,4 +87,3 @@ export const SignUp = () => {
     </main>
   )
 }
-

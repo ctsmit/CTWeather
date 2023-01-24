@@ -3,43 +3,46 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { deleteLocation, getLocations } from "../services/users-api"
+import "../styles/locationsDrop.css"
 import { Create } from "./Create"
 
 export const Locations = () => {
   // const nav = useNavigate()
   const [locations, setLocations] = useState([])
-  
+
   const fetchData = async () => {
     let res = await getLocations()
-    setLocations(res.data)
+    setLocations(res.data[0].locations)
   }
-  
+
   const deleteLoc = async (id) => {
     await deleteLocation(id)
     fetchData()
   }
-  
+
   useEffect(() => {
     fetchData()
   }, [])
+  console.log(locations);
   return (
-    <div>
-      <ul>
-        {locations.map((location, i) => {
-          let loc = location.locations[0]
+    <div className="dropdown">
+      <button className="dropbtn">Locations</button>
+      <div className="dropdown-content">
+        {locations.map((location,i) => {
+          // let loc = location.locations[0]
           return (
-            <li key={i}>
-              <Link to={`/${location._id}`} state={location}>
-                {loc.city} {loc.state}
-              </Link>
-              <button onClick={() => deleteLoc(location._id)} className="xbtn">
+            <div key={i}>
+              <Link to={`/${location._id}`} state={location} >
+                {location.city.toUpperCase()} {location.state.toUpperCase()}  <button onClick={() => deleteLoc(location._id)} className="xbtn">
                 <FontAwesomeIcon icon={faXmark} />
               </button>
-            </li>
+              </Link>
+              
+            </div>
           )
         })}
-      </ul>
-      <Create fetchData={fetchData} />
+      </div>
+      {/* <Create fetchData={fetchData} /> */}
     </div>
   )
 }

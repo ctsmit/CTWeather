@@ -1,12 +1,13 @@
+import { faCircle } from "@fortawesome/free-regular-svg-icons"
 import { faCloudRain, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import "../styles/dataBar.css"
-import { HourlyPrecip } from "./HourlyPrecip"
 import { help } from "../utils"
+import { HourlyPrecip } from "./HourlyPrecip"
 
 export const DataBar = ({ data }) => {
-  const loc = useLocation().state.locations[0]
+  const loc = useLocation().state
 
   let iconCode = data.current.weather[0].icon
   let iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
@@ -37,13 +38,14 @@ export const DataBar = ({ data }) => {
       <div className="current">
           <img className="icon" src={iconURL} alt="oops" />
         <div className="flex1">
-          <h1>{currentTemp}<span className="small">F </span><span className="xsmall"> feels like {currentRF}</span></h1>
+          <h1>{currentTemp}<span className="small"><FontAwesomeIcon className="fa-2xs degree" icon={faCircle} /></span><span className="xsmall"> feels like {currentRF}<FontAwesomeIcon icon={faCircle} className="degree1"/></span></h1>
           <h5 className="description">{data.current.weather[0].main} <br/><span className="small">{data.current.weather[0].description}</span></h5>
         </div>
       </div>
       <hr />
       <br />
       <HourlyPrecip hourly={data.hourly} />
+      
       <br />
       <div className="sunsets-container">
         <p>Sunrise & Sunset</p>
