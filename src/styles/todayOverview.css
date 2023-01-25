@@ -23,3 +23,20 @@
   display: flex;
   justify-content: space-around;
 }
+.logout-btn {
+  background: rgba(73, 76, 255, 0.06);
+  box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.589);
+  border-radius: 5px;
+  color:rgba(46, 30, 78, 0.897);
+  padding: .3rem .3rem;
+  font-weight: bold;
+  border: none;
+  height: fit-content;
+  cursor: pointer;
+  margin-left:10rem ;
+}
+.logout-btn:hover{
+  background: rgba(33, 21, 56, 0.705);
+  color:aliceblue;
+
+}

@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { auth } from "../services/fire"
 
 export const Login = ({ setIsLoggedIn, setCurrentUser }) => {
-  const navigate = useNavigate()
+  const nav= useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -13,9 +13,9 @@ export const Login = ({ setIsLoggedIn, setCurrentUser }) => {
     try {
       let userCredential = await signInWithEmailAndPassword(auth, email, password)
       let user = userCredential.user
-      console.log(user)
-      setCurrentUser(user.email)
-      navigate("/")
+      setCurrentUser(user)
+      setIsLoggedIn(true)
+      nav("/")
     } catch (error) {
       console.log(error.code, error.message)
     }

@@ -22,31 +22,33 @@ export const getLocations = () => {
   return response
 }
 //show one
-export const getLocation = (id) => {
-  const URL = `${BaseURL}/${id}`
+export const getLocationsArr = (user) => {
+  const URL = `${BaseURL}/${user}`
   const response = axios.get(URL)
   return response
 }
 //edit
-export const editLocation = (id, updatedLocation) => {
-  const URL = `${BaseURL}/${id}`
-  const response = axios.put(URL, updatedLocation)
+export const addLocation = (email, newLocation) => {
+  const URL = `${BaseURL}/${email}`
+  console.log(newLocation[0]);
+  const response = axios.put(URL, newLocation[0])
   return response
 }
 //create
-export const createLocation = async (location) => {
+export const createUser = async (user) => {
   // const header = await createToken()
-
+  console.log(user);
   try {
-    const response = await axios.post(BaseURL, location)
+    const response = await axios.post(BaseURL, user)
     return response
   } catch (e) {
     console.error(e)
   }
 }
 //delete
-export const deleteLocation = (id) => {
-  const URL = `${BaseURL}/${id}`
-  const response = axios.delete(URL)
+export const deleteLocation = (location, email) => {
+  console.log({ email });
+  const URL = `${BaseURL}/${location}`
+  const response = axios.delete(URL, {data: {email}})
   return response
 }

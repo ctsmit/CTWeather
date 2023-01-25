@@ -6,8 +6,8 @@ import "../styles/dataBar.css"
 import { help } from "../utils"
 import { HourlyPrecip } from "./HourlyPrecip"
 
-export const DataBar = ({ data }) => {
-  const loc = useLocation().state
+export const DataBar = ({ data, loc }) => {
+  // const loc = useLocation().state
 
   let iconCode = data.current.weather[0].icon
   let iconURL = `http://openweathermap.org/img/w/${iconCode}.png`

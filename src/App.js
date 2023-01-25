@@ -3,6 +3,7 @@ import { auth } from "./services/fire"
 // import { Link } from "react-router-dom"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { Locations } from "./components/Locations"
+import { Create } from "./pages/Create"
 import { Login } from "./pages/Login"
 import { MainWeather } from "./pages/MainWeather"
 import { SignUp } from "./pages/SignUp"
@@ -10,11 +11,11 @@ import "./styles/App.css"
 
 // import { getLocations } from "./services/users-api"
 export default function App() {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  
+  // if (isLoggedIn){}
+
   auth.onAuthStateChanged((user) => {
-    console.log(isLoggedIn)
     user ? setIsLoggedIn(true) : setIsLoggedIn(false)
   })
 
@@ -26,12 +27,12 @@ export default function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Locations />} />
-          <Route path="/:id" element={<MainWeather isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
-          <Route path="/signup" element={<SignUp setIsLoggedIn={setIsLoggedIn} />}></Route>
-          <Route
-            path="/login"
-            element={<Login setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />}></Route>
+          <Route path="/" element={<MainWeather isLoggedIn={isLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          <Route path="/:id" element={<MainWeather isLoggedIn={isLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          
+          <Route path="/signup" element={<SignUp setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} currentUser={currentUser} />}></Route>
+          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />}></Route>
+          <Route path="/create" element={<Create currentUser={currentUser} />} />
         </Routes>
       </Router>
     </div>

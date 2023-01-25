@@ -3,20 +3,22 @@ import { createUserWithEmailAndPassword } from "firebase/auth"
 import React, { useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { auth } from "../services/fire"
+import { createUser } from "../services/users-api"
 
-export const SignUp = () => {
+export const SignUp = ({setCurrentUser, currentUser}) => {
   const nav = useNavigate()
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const createUser = async (e) => {
+  const createFireUser = async (e) => {
     e.preventDefault()
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
-      nav("/login")
+      const userCred = await createUserWithEmailAndPassword(auth, email, password)
+      let user = userCred.user.uid
+      createUser({ user })
+      nav("/")
     } catch (error) {
-      // Handle different error codes
       switch (error.code) {
         case "auth/email-already-in-use":
           alert("The email address is already in use by another account.")
@@ -73,7 +75,7 @@ export const SignUp = () => {
               </div>
 
               <div className="signUpFormButtons">
-                <button type="submit" onClick={createUser}>
+                <button type="submit" onClick={createFireUser}>
                   Sign up
                 </button>
               </div>
