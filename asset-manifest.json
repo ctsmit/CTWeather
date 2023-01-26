@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/CTWeather_React/static/css/main.ad190ccd.css",
-    "main.js": "/CTWeather_React/static/js/main.54ed57ff.js",
+    "main.js": "/CTWeather_React/static/js/main.bc901489.js",
     "index.html": "/CTWeather_React/index.html",
     "main.ad190ccd.css.map": "/CTWeather_React/static/css/main.ad190ccd.css.map",
-    "main.54ed57ff.js.map": "/CTWeather_React/static/js/main.54ed57ff.js.map"
+    "main.bc901489.js.map": "/CTWeather_React/static/js/main.bc901489.js.map"
   },
   "entrypoints": [
     "static/css/main.ad190ccd.css",
-    "static/js/main.54ed57ff.js"
+    "static/js/main.bc901489.js"
   ]
 }
