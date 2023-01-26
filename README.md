@@ -33,6 +33,7 @@ Click on the little person icon and click delete account, it deletes from both m
 - [ ] finish the next week overview
 - [ ] add moon phase icon
 - [ ] make the sunrise change to the upcoming sunrise after a certain time
+- [ ] add a loading icon because render is so slow
 
 # Motivation
 
@@ -80,11 +81,12 @@ I am enrolled in a software engineering bootcamp (15wks). This was our third pro
 
 - **openweathermap Api** for weather data
 
--**Firebase** for signing in and auth
+- **Firebase** for signing in and auth
 
 # Credits
 Thank you to Cycle 28 and our amazing teachers:
 - Tishana Trainor
 - Kasper Kain
 
-the visual style inspired by https://dribbble.com/shots/18425258-Srawana-Weather-Dashboard-Design
+the visual style inspired by https://dribbble.com/shots/18425258-Srawana-Weather-Dashboard-Design\
+fontawesome.com for icons
