@@ -1,4 +1,5 @@
 # CTWeather App
+A modern styled essential data weather app.
 
 [Live App](https://ctsmit.github.io/CTWeather)
 
@@ -11,8 +12,23 @@
 
 
 # About
+You are able to create an account and add and store any location (currently only US).
 
+To add location:
+Hover "Locations" click add and fill out and submit the form.
 
+To delete account:
+Click on the little person icon and click delete account, it deletes from both mongodb and firebase.
+
+# Future Enhancements
+
+- [ ] change from US only location to world wide
+- [ ] add a search bar so you don't have to have an exact city and state abbriviation
+- [ ] when you delete a location, stays on current location instead of first in the array of locations
+- [ ] when add location go to that location instead of first in array
+- [ ] finish the next week overview
+- [ ] add moon phase icon
+- [ ] make the sunrise change to the upcoming sunrise after a certain time
 
 # Motivation
 
@@ -56,6 +72,8 @@ I am enrolled in a software engineering bootcamp (15wks). This was our third pro
 - **Vanilla CSS** for styling
 
 - **openweathermap Api** for weather data
+
+-**Firebase** for signing in and auth
 
 # Credits
 Thank you to Cycle 28 and our amazing teachers:
