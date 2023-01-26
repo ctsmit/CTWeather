@@ -6,10 +6,10 @@
 
 # Screenshots
 
+![weatherapp](https://user-images.githubusercontent.com/114516481/214865973-8ee30a52-d7a6-45ef-b8a3-db1dfea6ed45.PNG)
 
 
 # About
-
 
 
 
@@ -53,9 +53,11 @@ I am enrolled in a software engineering bootcamp (15wks). This was our third pro
 
 - **Vanilla CSS** for styling
 
+- **openweathermap Api** for weather data
+
 # Credits
 Thank you to Cycle 28 and our amazing teachers:
 - Tishana Trainor
 - Kasper Kain
 
-
+the visual style inspired by https://dribbble.com/shots/18425258-Srawana-Weather-Dashboard-Design
