@@ -1,70 +1,92 @@
 # CTWeather App
+A modern styled essential data weather app.
 
 [Live App](https://ctsmit.github.io/CTWeather)
 
-## Available Scripts
+[express on render](https://ctweather.onrender.com/users/)
 
-In the project directory, you can run:
 
-### `npm start`
+# Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![weatherapp](https://user-images.githubusercontent.com/114516481/214865973-8ee30a52-d7a6-45ef-b8a3-db1dfea6ed45.PNG)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# About
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- You are able to create an account 
+- add and store any location (currently only US)
+- delete location
+- signout and delete account
 
-### `npm run build`
+To add location:
+Hover "Locations" click add and fill out and submit the form.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To delete account:
+Click on the little person icon and click delete account, it deletes from both mongodb and firebase.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Future Enhancements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] change from US only location to world wide
+- [ ] add a search bar so you don't have to have an exact city and state abbriviation
+- [ ] when you delete a location, stays on current location instead of first in the array of locations
+- [ ] when add location go to that location instead of first in array
+- [ ] finish the next week overview
+- [ ] add moon phase icon
+- [ ] make the sunrise change to the upcoming sunrise after a certain time
+- [ ] add a loading icon because render is so slow
 
-### `npm run eject`
+# Motivation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I am enrolled in a software engineering bootcamp (15wks). This was our third project assignment on week 15. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### To fork my repo:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- you will see a button in the UPPER RIGHT hand corner that says Fork. 
 
-## Learn More
+### To clone my repo:
+### You need both repos
+- `git clone https://github.com/ctsmit/CTWeather.git`
+- `git clone https://github.com/ctsmit/CTWeatherExpress`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Install dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm init -y`
+- `npm i`
 
-### Code Splitting
+### Create .nvm file:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Create a .env file for react and link to Openweathermap api
+- Create a .env file for express and link to your mongo db
 
-### Analyzing the Bundle Size
+### Start App:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- use nodemon to run the express app, will open in http://localhost:3001/users
+- 
+- use npm start on the react app and have the app open in http://localhost:3000/
 
-### Making a Progressive Web App
+# Technologies Used
+- **React.js** for front-end development. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Node.js** as runtime enviroment of JS.
 
-### Advanced Configuration
+- **Mongoose** as library for MongoDB.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Express.js** as framework.
 
-### Deployment
+- **MongoDB** as database for storing items in a collection.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Vanilla CSS** for styling
 
-### `npm run build` fails to minify
+- **openweathermap Api** for weather data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Firebase** for signing in and auth
+
+# Credits
+Thank you to Cycle 28 and our amazing teachers:
+- Tishana Trainor
+- Kasper Kain
+
+the visual style inspired by https://dribbble.com/shots/18425258-Srawana-Weather-Dashboard-Design\
+fontawesome.com for icons
