@@ -1,3 +1,8 @@
+.titles {
+  text-shadow: .1rem .1rem .3rem rgba(0, 0, 0, 0.589);
+
+}
+
 .overview-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -6,37 +11,56 @@
 }
 
 .overviews {
+  /* display: flex; */
   background: rgba(73, 76, 255, 0.06);
   border-radius: 5px;
-  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.589);
+  box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.589);
 
-  padding: .5rem 1rem;
+  padding: .5rem 0rem;
 }
 
 .overviews h4 {
   text-align: center;
-  color: rgb(63, 63, 63);
-  font-weight: 600;
 }
 
 .flex {
   display: flex;
-  justify-content: space-around;
+  gap: .5rem;
+  text-align: center;
 }
+
+.flex> :first-child,
+.flex> :last-child {
+  color: rgb(149, 156, 255);
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+#air-quality {
+  width: 25%;
+}
+
+.purple {
+  color: rgba(46, 30, 78, 0.897);
+}
+
 .logout-btn {
   background: rgba(73, 76, 255, 0.06);
-  box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.589);
+  box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.589);
+  text-shadow: .05rem .05rem .2rem rgba(0, 0, 0, 0.589);
   border-radius: 5px;
-  color:rgba(46, 30, 78, 0.897);
+  color: rgba(46, 30, 78, 0.897);
   padding: .3rem .3rem;
+  font-size: 80%;
   font-weight: bold;
   border: none;
   height: fit-content;
   cursor: pointer;
-  margin-left:10rem ;
+  margin-left: 15vw;
 }
-.logout-btn:hover{
+
+.logout-btn:hover {
   background: rgba(33, 21, 56, 0.705);
-  color:aliceblue;
+  color: aliceblue;
 
 }

@@ -1,91 +1,68 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
-import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { DataBar } from "../components/DataBar"
 import { TodayOverview } from "../components/TodayOverview"
 import { auth } from "../services/fire"
-import { getLocation, getLocationsArr } from "../services/users-api"
+import { getLocationsArr } from "../services/users-api"
 import { getAirPollAPI, getCoordinates, getWeatherAPI } from "../services/weather-api"
+import "../styles/main.css"
 
-export const MainWeather = ({ isLoggedIn, currentUser, setCurrentUser }) => {
-  const nav = useNavigate()
-  const state = useLocation().state
-
+export const MainWeather = ({ isLoggedIn, currentUser, setCurrentUser, isNewUser }) => {
   const [locations, setLocations] = useState([])
   const [loc, setLocation] = useState()
   const [weatherData, setWeatherData] = useState()
   const [airData, setAirData] = useState()
 
   const fetchLocations = async () => {
-    let res = await getLocationsArr(currentUser.uid)
+    let user = await auth.currentUser.uid
+    let res = await getLocationsArr(user)
     res = res.data[0].locations
-    // console.log(res)
     setLocations(res)
-    console.log(locations)
     setLocation(res[0])
   }
 
   const getWeatherData = async () => {
-      console.log(loc)
-      let coor = await getCoordinates(loc)
-      coor = coor.data[0]
-      let wData = await getWeatherAPI(coor.lat, coor.lon)
-      setWeatherData(wData.data)
-      let aData = await getAirPollAPI(coor.lat, coor.lon)
-      let aqi = aData.data.list[0].main.aqi
-      setAirData(aqi)
+    let coor = await getCoordinates(loc)
+    coor = coor.data[0]
+    let wData = await getWeatherAPI(coor.lat, coor.lon)
+    setWeatherData(wData.data)
+    let aData = await getAirPollAPI(coor.lat, coor.lon)
+    let aqi = aData.data.list[0].main.aqi
+    setAirData(aqi)
   }
 
-  // const fetchAllData = async () => {
-  //   await fetchLocations()
-  //   await getWeatherData()
-  // }
-  
   useEffect(() => {
     if (isLoggedIn) {
+      console.log("islogged")
       fetchLocations()
     }
-    console.log("empty");
-
-    // auth.onAuthStateChanged((currentUser) => {
-    //   if (currentUser) {
-    //     setCurrentUser(currentUser)
-    //   } else {
-    //     nav("/login")
-    //   }
-    // })
   }, [])
+
   useEffect(() => {
     if (loc) {
+      console.log("getting weather")
       getWeatherData()
     }
-    console.log(loc);
-   
-    // auth.onAuthStateChanged((currentUser) => {
-    //   if (currentUser) {
-    //     setCurrentUser(currentUser)
-    //   } else {
-    //     nav("/login")
-    //   }
-    // })
   }, [loc])
 
   return (
-    airData && loc && (
-      <>
-        <section>
+    airData &&
+    loc && (
+      <div className="main-container">
+        <section className="section1">
           <TodayOverview
             setLocation={setLocation}
+            setLocations={setLocations}
             locations={locations}
             currentUser={currentUser}
             weatherData={weatherData}
             airData={airData}
+            fetchLocations={fetchLocations}
           />
         </section>
-        <section>
+        <section className="section2">
           <DataBar loc={loc} data={weatherData} />
         </section>
-      </>
+      </div>
     )
   )
 }

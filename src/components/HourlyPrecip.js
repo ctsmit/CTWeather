@@ -13,7 +13,7 @@ export const HourlyPrecip = ({ hourly }) => {
   return (
     sixHours && (
       <>
-        <p className="rain-chance">Chance of Rain</p>
+        <p className="rain-chance">Chance of Precip</p>
         <div className="six-hour-container">
           {sixHours.map((hour, i) => {
             let iconCode = hour.weather[0].icon
@@ -23,11 +23,13 @@ export const HourlyPrecip = ({ hourly }) => {
             return (
               <div key={i + 4} className="hour-container">
                 <h4 key={i}>{help.getHour(hour.dt)}</h4>
-                <img key={i + 1} src={iconURL} height="32" alt="oop" />
-                <h4 key={i + 3}>
-                  {Math.round(hour.temp)}
-                  <FontAwesomeIcon className="degree1" icon={faCircle} />
-                </h4>
+                <div className="flex2">
+                  <img key={i + 1} src={iconURL} height="32" alt="oop" />
+                  <h4 key={i + 3}>
+                    {Math.round(hour.temp)}
+                    <FontAwesomeIcon className="degree1" icon={faCircle} />
+                  </h4>
+                </div>
                 <h4 key={i + 2}>{precChance}%</h4>
               </div>
             )

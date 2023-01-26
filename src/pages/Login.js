@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { auth } from "../services/fire"
 
 export const Login = ({ setIsLoggedIn, setCurrentUser }) => {
-  const nav= useNavigate()
+  const nav = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 

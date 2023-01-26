@@ -1,11 +1,10 @@
-// import "./signUpPage.css"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import React, { useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { auth } from "../services/fire"
 import { createUser } from "../services/users-api"
 
-export const SignUp = ({setCurrentUser, currentUser}) => {
+export const SignUp = ({ setCurrentUser, setIsloggedIn, setIsNewUser }) => {
   const nav = useNavigate()
 
   const [email, setEmail] = useState("")
@@ -16,7 +15,10 @@ export const SignUp = ({setCurrentUser, currentUser}) => {
     try {
       const userCred = await createUserWithEmailAndPassword(auth, email, password)
       let user = userCred.user.uid
-      createUser({ user })
+      await createUser({ user })
+      await setCurrentUser(userCred.user)
+      await setIsNewUser(true)
+      await setIsloggedIn(true)
       nav("/")
     } catch (error) {
       switch (error.code) {
@@ -40,52 +42,48 @@ export const SignUp = ({setCurrentUser, currentUser}) => {
   }
 
   return (
-    <main className="signUpPage page">
-      <section>
-        <div className="signUpFormContainer">
-          <h1> Sign Up </h1>
-          <div className="signUpForm">
-            <form>
-              <div className="signUpFormInput">
-                <div className="signUpFormFields">
-                  <div>
-                    <label htmlFor="email-address">Email address</label>
-                    <input
-                      type="email"
-                      label="Email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      placeholder="Email address"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                      type="password"
-                      label="Create password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                      placeholder="Password"
-                    />
-                  </div>
-                </div>
+    <div className="signUpFormContainer">
+      <h1> Sign Up </h1>
+      <div className="signUpForm">
+        <form>
+          <div className="signUpFormInput">
+            <div className="signUpFormFields">
+              <div>
+                <label htmlFor="email-address">Email address</label>
+                <input
+                  type="email"
+                  label="Email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="Email address"
+                />
               </div>
 
-              <div className="signUpFormButtons">
-                <button type="submit" onClick={createFireUser}>
-                  Sign up
-                </button>
+              <div>
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  label="Create password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  placeholder="Password"
+                />
               </div>
-            </form>
+            </div>
           </div>
-          <p>
-            Already have an account? <NavLink to="/login">Sign in</NavLink>
-          </p>
-        </div>
-      </section>
-    </main>
+
+          <div className="signUpFormButtons">
+            <button type="submit" onClick={createFireUser}>
+              Sign up
+            </button>
+          </div>
+        </form>
+      </div>
+      <p>
+        Already have an account? <NavLink to="/login">Sign in</NavLink>
+      </p>
+    </div>
   )
 }

@@ -1,21 +1,18 @@
 import { useNavigate } from "react-router-dom"
-import { addLocation, getLocationsArr } from "../services/users-api"
+import { addLocation } from "../services/users-api"
 
-export const Create = ({ fetchData, currentUser}) => {
-
+export const AddLocation = ({ currentUser }) => {
+  const nav = useNavigate()
 
   const createTheLocation = async (e) => {
     e.preventDefault()
-    console.log(currentUser);
-    const location = [{ city: e.target.city.value, state: e.target.state.value }]
+    const location = { city: e.target.city.value, state: e.target.state.value }
     try {
-      let res = await addLocation(currentUser, location)
-      
-      console.log(res.data[0].locations);
+      let res = await addLocation(currentUser.uid, location)
     } catch (error) {
       console.log(error)
     }
-    // fetchData()
+    nav("/")
   }
 
   return (

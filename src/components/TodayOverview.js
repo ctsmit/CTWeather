@@ -1,17 +1,25 @@
-import {} from "@fortawesome/free-regular-svg-icons"
+import { faUser } from "@fortawesome/free-regular-svg-icons"
 import { faCaretUp, faCloud, faCloudRain, faSmog, faSun, faWind } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { getAirPollAPI } from "../services/weather-api"
-
-import { auth } from "../services/fire"
 import "../styles/todayOverview.css"
 
-import { help } from "../utils"
-import { Locations } from "./Locations"
+import { NavLink, useNavigate } from "react-router-dom"
 
-export const TodayOverview = ({ weatherData, airData, currentUser, locations, setLocation }) => {
+import { auth } from "../services/fire"
+
+import { Locations } from "./Locations"
+import { deleteUser } from "../services/users-api"
+import { help } from "../utils"
+
+export const TodayOverview = ({
+  weatherData,
+  airData,
+  currentUser,
+  locations,
+  setLocation,
+  setLocations,
+  fetchLocations,
+}) => {
   const nav = useNavigate()
   let data = weatherData
   let api = airData
@@ -21,19 +29,48 @@ export const TodayOverview = ({ weatherData, airData, currentUser, locations, se
   let precChance = Math.round(data.daily[0].pop * 100)
   let cloudPerc = data.daily[0].clouds
   let uvi = data.daily[0].uvi
-  const signOut = () => {
-    auth.signOut()
+
+  const signOut = async () => {
+    await auth.signOut()
     nav("/login")
   }
+  const deleteAccount = async () => {
+    let user = auth.currentUser
+    deleteUser(user.uid)
+    try {
+      user && user.delete()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     currentUser && (
       <div className="overview">
         <div className="flex1">
-          <h2>Today Overview</h2>
-          <button className="logout-btn" onClick={signOut}>
-            Sign Out
-          </button>
-          <Locations currentUser={currentUser} setLocation={setLocation} locations={locations} />
+          <h2 className="titles">Today Overview</h2>
+
+          <div className="userbtn-container">
+            <button className="userbtn">
+              <FontAwesomeIcon icon={faUser} className="fa-xl" />
+            </button>
+            <div id="myDropdown" className="user-content">
+              <NavLink to={"/login"} className="signout-btn" onClick={signOut}>
+                Sign Out
+              </NavLink>
+              <NavLink to="/signup" className="deleteacc-btn" onClick={deleteAccount}>
+                Delete Account
+              </NavLink>
+            </div>
+          </div>
+
+          <Locations
+            currentUser={currentUser}
+            setLocations={setLocations}
+            setLocation={setLocation}
+            locations={locations}
+            fetchLocations={fetchLocations}
+          />
         </div>
         <div className="overview-container">
           <div className="overviews">
@@ -42,8 +79,8 @@ export const TodayOverview = ({ weatherData, airData, currentUser, locations, se
               <FontAwesomeIcon className="fa-xl" icon={faWind} />
               <h1>{windSpeed} m/h</h1>
               <h4>
-                <FontAwesomeIcon className="fa-lg" icon={faCaretUp} />
                 {windGusts}
+                <FontAwesomeIcon className="purple fa-lg" icon={faCaretUp} />
               </h4>
             </div>
           </div>
@@ -54,7 +91,7 @@ export const TodayOverview = ({ weatherData, airData, currentUser, locations, se
               <h1>{precChance}%</h1>
               <h4>
                 {cloudPerc}
-                <FontAwesomeIcon icon={faCloud} />
+                <FontAwesomeIcon className="purple" icon={faCloud} />
               </h4>
             </div>
           </div>
@@ -62,7 +99,9 @@ export const TodayOverview = ({ weatherData, airData, currentUser, locations, se
             <h4>Air Quality</h4>
             <div className="flex">
               <FontAwesomeIcon className="fa-xl" icon={faSmog} />
-              <h1>{api}</h1>
+              <div id="air-quality">
+                <h1>{api}</h1>
+              </div>
               <h4>{help.isAirBad(api)}</h4>
             </div>
           </div>

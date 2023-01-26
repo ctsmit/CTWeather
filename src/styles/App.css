@@ -5,56 +5,13 @@
 
 body {
   background: #313131;
-  padding: 3rem;
-  font-size: min(1.4vw,1rem);
+  padding: 3rem 3rem;
+  font-size: min(1.4vw, 1rem);
 }
 
+
 #root {
-  max-width: 70rem;
+  max-width: 60rem;
   margin: auto;
   border-radius: 10px;
 }
-
-.App {
-  display: grid;
-  grid-template-columns: 1.8fr 1fr;
-  background: transparent;
-  border-radius: 10px;
-  box-shadow:
-    0 .4rem 1rem rgba(0, 0, 0, 0.589),
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086);
-}
-
-.App>:first-child {
-  background: linear-gradient(135deg, #ffffff9c 0%, #00000002 85% 100%, #ffffff3d);
-
-  color: rgba(46, 30, 78, 0.897);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding: 1.8rem;
-}
-
-.App>:last-child {
-  background: linear-gradient(135deg, rgba(29, 19, 49, 0.3)0%, rgb(29, 19, 49, .9)42% 55%, rgba(29, 19, 49, 0.35));
-  color: aliceblue;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-
-  padding: 1.8rem;
-}
-
-.xbtn {
-  background: rgba(255, 255, 255, 0.281);
-  border: none;
-}
-.icon{
-  margin-bottom: -1.4rem;
-  margin-left: -.5rem;
-  width:  25%;
-  height: auto;
-}
-
