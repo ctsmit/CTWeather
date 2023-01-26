@@ -1,23 +1,21 @@
 import { useEffect, useState } from "react"
-import { auth } from "./services/fire"
-// import { Link } from "react-router-dom"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes, HashRouter } from "react-router-dom"
 import { AddLocation } from "./pages/AddLocation"
 import { Login } from "./pages/Login"
 import { MainWeather } from "./pages/MainWeather"
 import { SignUp } from "./pages/SignUp"
 import "./styles/App.css"
 
-// import { getLocations } from "./services/users-api"
 export default function App() {
   const [currentUser, setCurrentUser] = useState()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [isNewUser, setIsNewUser] = useState(false)
   const test = "test"
 
+  
   return (
     <div className="App">
-      <Router>
+      <Router basename="/CTWeather">
         <Routes>
           <Route
             path="/"

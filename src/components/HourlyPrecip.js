@@ -17,7 +17,7 @@ export const HourlyPrecip = ({ hourly }) => {
         <div className="six-hour-container">
           {sixHours.map((hour, i) => {
             let iconCode = hour.weather[0].icon
-            let iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
+            let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`
             let precChance = Math.round(hour.pop * 100)
 
             return (

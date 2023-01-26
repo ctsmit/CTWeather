@@ -7,7 +7,7 @@ import { HourlyPrecip } from "./HourlyPrecip"
 
 export const DataBar = ({ data, loc }) => {
   let iconCode = data.current.weather[0].icon
-  let iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
+  let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`
 
   let sunrise = data.current.sunrise
   let rise = help.getSunrise(sunrise)

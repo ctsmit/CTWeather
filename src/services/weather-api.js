@@ -3,7 +3,7 @@ const APIKey = process.env.REACT_APP_OW_API_KEY
 
 export const getCoordinates = (searchTerm) => {
   let response = axios.get(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${searchTerm.city},${searchTerm.state},USA&limit=1&appid=bbc418a4d68c4e0909edc8c1c86103d7`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${searchTerm.city},${searchTerm.state},USA&limit=1&appid=bbc418a4d68c4e0909edc8c1c86103d7`
   )
   return response
 }
@@ -17,7 +17,7 @@ export const getWeatherAPI = (lat, lon) => {
 
 export const getAirPollAPI = (lat, lon) => {
   const response = axios.get(
-    `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${APIKey}`
+    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${APIKey}`
   )
   return response
 }

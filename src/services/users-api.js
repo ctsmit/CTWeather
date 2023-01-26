@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BaseURL = "https://ctweather.onrender.com/users" // http://localhost:3001/users
+const BaseURL = "https://ctweather.onrender.com/users/" // http://localhost:3001/users
 
 //show all
 export const getLocations = () => {
