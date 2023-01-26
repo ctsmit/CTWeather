@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { auth } from "../services/fire"
 import { createUser } from "../services/users-api"
 
-export const SignUp = ({ setCurrentUser, setIsloggedIn, setIsNewUser }) => {
+export const SignUp = ({ setCurrentUser, setIsLoggedIn}) => {
   const nav = useNavigate()
 
   const [email, setEmail] = useState("")
@@ -18,8 +18,7 @@ export const SignUp = ({ setCurrentUser, setIsloggedIn, setIsNewUser }) => {
 
       await createUser({ user })
       await setCurrentUser(userCred.user)
-      await setIsNewUser(true)
-      await setIsloggedIn(true)
+      await setIsLoggedIn(true)
       nav("/")
       
     } catch (error) {
