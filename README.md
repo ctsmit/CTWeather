@@ -12,7 +12,11 @@ A modern styled essential data weather app.
 
 
 # About
-You are able to create an account and add and store any location (currently only US).
+
+- You are able to create an account 
+- add and store any location (currently only US)
+- delete location
+- signout and delete account
 
 To add location:
 Hover "Locations" click add and fill out and submit the form.
@@ -41,7 +45,7 @@ I am enrolled in a software engineering bootcamp (15wks). This was our third pro
 - you will see a button in the UPPER RIGHT hand corner that says Fork. 
 
 ### To clone my repo:
-
+### You need both repos
 - `git clone https://github.com/ctsmit/CTWeather.git`
 - `git clone https://github.com/ctsmit/CTWeatherExpress`
 
@@ -52,11 +56,14 @@ I am enrolled in a software engineering bootcamp (15wks). This was our third pro
 
 ### Create .nvm file:
 
-- Create a .env file and link to Openweathermap api
+- Create a .env file for react and link to Openweathermap api
+- Create a .env file for express and link to your mongo db
 
 ### Start App:
 
-- you should then be able to run npm start and have the app open in http://localhost:3000/
+- use nodemon to run the express app, will open in http://localhost:3001/users
+- 
+- use npm start on the react app and have the app open in http://localhost:3000/
 
 # Technologies Used
 - **React.js** for front-end development. 
