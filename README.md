@@ -89,4 +89,5 @@ Thank you to Cycle 28 and our amazing teachers:
 - Kasper Kain
 
 the visual style inspired by https://dribbble.com/shots/18425258-Srawana-Weather-Dashboard-Design\
+
 fontawesome.com for icons
