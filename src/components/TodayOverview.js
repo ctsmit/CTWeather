@@ -7,19 +7,11 @@ import { NavLink, useNavigate } from "react-router-dom"
 
 import { auth } from "../services/fire"
 
-import { Locations } from "./Locations"
 import { deleteUser } from "../services/users-api"
 import { help } from "../utils"
+import { Locations } from "./Locations"
 
-export const TodayOverview = ({
-  weatherData,
-  airData,
-  currentUser,
-  locations,
-  setLocation,
-  setLocations,
-  fetchLocations,
-}) => {
+export const TodayOverview = ({ weatherData, airData, currentUser, locations, setLocation, fetchLocations }) => {
   const nav = useNavigate()
   let data = weatherData
   let api = airData
@@ -49,28 +41,28 @@ export const TodayOverview = ({
       <div className="overview">
         <div className="flex1">
           <h2 className="titles">Today Overview</h2>
-
-          <div className="userbtn-container">
-            <button className="userbtn">
-              <FontAwesomeIcon icon={faUser} className="fa-xl" />
-            </button>
-            <div id="myDropdown" className="user-content">
-              <NavLink to={"/login"} className="signout-btn" onClick={signOut}>
-                Sign Out
-              </NavLink>
-              <NavLink to="/signup" className="deleteacc-btn" onClick={deleteAccount}>
-                Delete Account
-              </NavLink>
+          <div className="btn-container">
+            <div className="userbtn-container">
+              <button className="userbtn">
+                <FontAwesomeIcon icon={faUser} className="fa-xl" />
+              </button>
+              <div id="myDropdown" className="user-content">
+                <NavLink to={"/login"} className="signout-btn" onClick={signOut}>
+                  Sign Out
+                </NavLink>
+                <NavLink to="/signup" className="deleteacc-btn" onClick={deleteAccount}>
+                  Delete Account
+                </NavLink>
+              </div>
             </div>
-          </div>
 
-          <Locations
-            currentUser={currentUser}
-            setLocations={setLocations}
-            setLocation={setLocation}
-            locations={locations}
-            fetchLocations={fetchLocations}
-          />
+            <Locations
+              currentUser={currentUser}
+              setLocation={setLocation}
+              locations={locations}
+              fetchLocations={fetchLocations}
+            />
+          </div>
         </div>
         <div className="overview-container">
           <div className="overviews">

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { deleteLocation } from "../services/users-api"
 import "../styles/locationsDrop.css"
 
-export const Locations = ({ currentUser, locations, setLocation, setLocations, fetchLocations }) => {
+export const Locations = ({ currentUser, locations, setLocation, fetchLocations }) => {
   const deleteLoc = async (location) => {
     await deleteLocation(currentUser.uid, location._id)
     await fetchLocations()

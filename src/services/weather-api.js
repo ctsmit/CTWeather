@@ -22,7 +22,4 @@ export const getAirPollAPI = (lat, lon) => {
   return response
 }
 
-export const getMapAPI = () => {
-  const response = axios.get(`https://tile.openweathermap.org/map/precipitation/5/50/50.png?appid=${APIKey}`)
-  return response
-}
+

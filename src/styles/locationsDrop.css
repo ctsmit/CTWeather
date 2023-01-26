@@ -80,7 +80,12 @@
 
 
 
+.btn-container{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 
+}
 .userbtn {
   background-color: transparent;
   color: rgb(149, 156, 255);

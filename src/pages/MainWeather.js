@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
 import { DataBar } from "../components/DataBar"
 import { TodayOverview } from "../components/TodayOverview"
@@ -6,7 +7,7 @@ import { getLocationsArr } from "../services/users-api"
 import { getAirPollAPI, getCoordinates, getWeatherAPI } from "../services/weather-api"
 import "../styles/main.css"
 
-export const MainWeather = ({ isLoggedIn, currentUser, setCurrentUser, isNewUser }) => {
+export const MainWeather = ({ isLoggedIn, currentUser}) => {
   const [locations, setLocations] = useState([])
   const [loc, setLocation] = useState()
   const [weatherData, setWeatherData] = useState()
@@ -51,7 +52,6 @@ export const MainWeather = ({ isLoggedIn, currentUser, setCurrentUser, isNewUser
         <section className="section1">
           <TodayOverview
             setLocation={setLocation}
-            setLocations={setLocations}
             locations={locations}
             currentUser={currentUser}
             weatherData={weatherData}
