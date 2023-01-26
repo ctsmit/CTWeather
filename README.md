@@ -2,7 +2,8 @@
 
 [Live App](https://ctsmit.github.io/CTWeather)
 
-[express repo](https://github.com/ctsmit/CTWeatherExpress)
+[express on render](https://ctweather.onrender.com/users/)
+
 
 # Screenshots
 
@@ -26,6 +27,7 @@ I am enrolled in a software engineering bootcamp (15wks). This was our third pro
 ### To clone my repo:
 
 - `git clone https://github.com/ctsmit/CTWeather.git`
+- `git clone https://github.com/ctsmit/CTWeatherExpress`
 
 ### Install dependencies:
 
