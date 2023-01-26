@@ -14,9 +14,6 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [isNewUser, setIsNewUser] = useState(false)
   const test = "test"
-  auth.onAuthStateChanged((user) => {
-    user ? setIsLoggedIn(true) : setIsLoggedIn(false)
-  })
 
   return (
     <div className="App">
@@ -25,13 +22,17 @@ export default function App() {
           <Route
             path="/"
             element={
-              <MainWeather
-                test={test}
-                isLoggedIn={isLoggedIn}
-                currentUser={currentUser}
-                setCurrentUser={setCurrentUser}
-                isNewUser={isNewUser ? true : false}
-              />
+              !isLoggedIn ? (
+                <Login setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />
+              ) : (
+                <MainWeather
+                  test={test}
+                  isLoggedIn={isLoggedIn}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  isNewUser={isNewUser ? true : false}
+                />
+              )
             }
           />
 
