@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/CTWeather/static/css/main.ad190ccd.css",
-    "main.js": "/CTWeather/static/js/main.99e5f42e.js",
+    "main.js": "/CTWeather/static/js/main.a38b8228.js",
     "index.html": "/CTWeather/index.html",
     "main.ad190ccd.css.map": "/CTWeather/static/css/main.ad190ccd.css.map",
-    "main.99e5f42e.js.map": "/CTWeather/static/js/main.99e5f42e.js.map"
+    "main.a38b8228.js.map": "/CTWeather/static/js/main.a38b8228.js.map"
   },
   "entrypoints": [
     "static/css/main.ad190ccd.css",
-    "static/js/main.99e5f42e.js"
+    "static/js/main.a38b8228.js"
   ]
 }
