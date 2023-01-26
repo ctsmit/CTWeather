@@ -19,8 +19,7 @@ export const SignUp = ({ setCurrentUser, setIsLoggedIn}) => {
       await createUser({ user })
       await setCurrentUser(userCred.user)
       await setIsLoggedIn(true)
-      nav("/")
-      
+      await nav("/")
     } catch (error) {
       switch (error.code) {
         case "auth/email-already-in-use":
